@@ -1,38 +1,133 @@
 .App {
-  text-align: center;
+	width: 100%;
+	height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+	margin: 0;
+	padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button:hover {
+	cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Navbar {
+	background-color: #021e39;
+	width: 100%;
+	height: 80px;
+	font-family: Arial, Helvetica, sans-serif;
+	display: flex;
 }
 
-.App-link {
-  color: #61dafb;
+.Navbar .leftSide #logo {
+	color: white;
+	margin-left: 15px;
+	margin-right: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Navbar .leftSide {
+	flex: 50%;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+}
+
+.Navbar .leftSide .links {
+	max-height: 80px;
+}
+
+.Navbar .leftSide .links a {
+	text-decoration: none;
+	color: white;
+	font-size: 25px;
+	margin-left: 15px;
+	border-left: solid;
+	border-right: solid;
+	padding: 5px;
+	border-color: rgb(205, 202, 202);
+	border-width: 2px;
+}
+
+.Navbar .leftSide button {
+	display: none;
+	margin-left: 20px;
+	border: none;
+	border-radius: 3px;
+}
+
+.Navbar .leftSide #hidden {
+	display: flex;
+}
+
+.Navbar .rightSide {
+	flex: 50%;
+}
+
+@media only screen and (max-width: 850px) {
+	.Navbar .leftSide .links a {
+		font-size: 20px;
+	}
+}
+
+@media only screen and (max-width: 750px) {
+	.Navbar .leftSide .links a {
+		font-size: 15px;
+	}
+}
+
+@media only screen and (max-width: 650px) {
+	.Navbar .leftSide button {
+		display: flex;
+	}
+
+	.Navbar .leftSide .links {
+		display: none;
+	}
+
+	.Navbar .leftSide #hidden {
+		position: absolute;
+		left: 0px;
+		top: 80px;
+		height: 230px;
+		max-height: 230px;
+		width: 100%;
+		background-color: #021e39;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.Navbar .leftSide #hidden a {
+		margin: 10px;
+		font-size: 25px;
+	}
+}
+
+.welcome {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family: Arial, Helvetica, sans-serif;
+	border-bottom: solid;
+}
+
+.welcome h3 {
+	font-size: 30px;
+	margin-bottom: 5px;
+}
+
+.homeContent {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: #61c3ed;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.homeContent .homeDesc {
+	align-items: center;
+	align-self: center;
+	text-align: center;
+	width: 500px;
 }
