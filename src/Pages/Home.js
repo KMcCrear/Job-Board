@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../Components/Footer";
 import NavBar from "../Components/NavBar";
 
 export default function Home() {
@@ -20,7 +21,11 @@ export default function Home() {
 						pay, Seach for new jobs and contact us
 					</p>
 				</div>
+				<div>test</div>
 			</main>
+			<footer>
+				<Footer />
+			</footer>
 		</div>
 	);
 }
