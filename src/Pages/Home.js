@@ -21,7 +21,7 @@ export default function Home() {
 						pay, Seach for new jobs and contact us
 					</p>
 				</div>
-				<div>test</div>
+				<div></div>
 			</main>
 			<footer>
 				<Footer />

@@ -255,6 +255,10 @@ button:hover {
 	align-items: center;
 }
 
+.loadJobData .jobTitles .hiddenDesc {
+	display: flex;
+}
+
 .loadJobData .jobTitles:hover {
 	font-weight: bold;
 }
