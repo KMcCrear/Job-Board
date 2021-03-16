@@ -79,7 +79,7 @@ export default function JobInfo() {
 				>
 					More info
 				</button>
-				{showDesc ? <div className="hiddenDesc">{titles.desc}</div> : ""}
+				{showDesc ? <div className="hiddenDesc">{titles.desc}</div> : null}
 			</div>
 		));
 
@@ -88,16 +88,14 @@ export default function JobInfo() {
 
 	const onClick = (e) => {
 		e.preventDefault();
-		setShowDesc(true);
+		setShowDesc(true); // for some reason does not set showDesc to true
+		//debugger;
 		console.log(showDesc);
 	};
 
 	return (
 		<div>
 			<div className="Contianer">
-				<nav>
-					<NavBar />
-				</nav>
 				<div className="jobInfo">
 					<header>
 						<h1>Want a new Job?</h1>
@@ -110,15 +108,12 @@ export default function JobInfo() {
 								onChange={(e) => setJobTitle(e.target.value)}
 							/>
 						</form>
-						{/* API call works when the button is here. This is why it's not places in the form */}
+						{/* API call works when the button is here. This is why it's not placed in the form */}
 						<button onClick={getData}>&rarr;</button>
 					</div>
 					<form>
 						<div className="loadJobData">Job Titles: {jobData}</div>
 					</form>
-					<footer>
-						<Footer />
-					</footer>
 				</div>
 			</div>
 		</div>

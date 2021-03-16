@@ -5,9 +5,6 @@ import NavBar from "../Components/NavBar";
 export default function Home() {
 	return (
 		<div className="Container">
-			<div>
-				<NavBar />
-			</div>
 			<div className="welcome">
 				<h3>Welcome</h3>
 				<p>
@@ -23,9 +20,6 @@ export default function Home() {
 				</div>
 				<div></div>
 			</main>
-			<footer>
-				<Footer />
-			</footer>
 		</div>
 	);
 }

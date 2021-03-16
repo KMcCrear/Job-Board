@@ -10,30 +10,45 @@ export default function PayCalc() {
 	const [monthlySalary, setMonthlySalary] = useState();
 	const [hourlySalary, setHourlySalary] = useState();
 	const [hoursWorked, setHoursWorked] = useState();
+	const [showPayData, setShowPayData] = useState(false);
 
 	const calculatePay = (e) => {
 		e.preventDefault();
+		setShowPayData(true);
 		switch (paymentType) {
 			case "Monthly":
 				setYearlySalary(Math.round(salary * 12 * 100) / 100);
 				setMonthlySalary(Math.round(salary));
 				setWeeklySalary(Math.round((salary / 4) * 100) / 100);
-				setHourlySalary(Math.round((salary / hoursWorked) * 100) / 100);
+				setHourlySalary(Math.round((salary / 4 / hoursWorked) * 100) / 100);
 				break;
 			case "Weekly":
+				setYearlySalary(Math.round(salary * 52 * 100) / 100);
+				setMonthlySalary(Math.round(((salary * 52) / 12) * 100) / 100);
+				setWeeklySalary(salary);
+				setHourlySalary(Math.round((salary / hoursWorked) * 100) / 100);
 				break;
 			case "Hourly":
-				console.log("Hourly");
+				setYearlySalary(Math.round(salary * 52 * 100) / 100);
+				setMonthlySalary(Math.round(salary * hoursWorked * 4 * 100) / 100);
+				setWeeklySalary(Math.round(salary * hoursWorked * 100) / 100);
+				setHourlySalary(Math.round(salary * 100) / 100);
 				break;
 		}
 	};
 
+	const Results = () => (
+		<div className="showPayData" id="Results">
+			<p>£ {yearlySalary}</p>
+			<p>£ {monthlySalary}</p>
+			<p>£ {weeklySalary}</p>
+			<p>£ {hourlySalary}</p>
+		</div>
+	);
+
 	return (
 		<div>
 			<div className="Container">
-				<div>
-					<NavBar />
-				</div>
 				<div className="payContainer">
 					<div className="payDesc">
 						<h3>Pay Calculator</h3>
@@ -55,50 +70,22 @@ export default function PayCalc() {
 							}}
 						/>
 					</form>
-					<form className="radioButtons">
-						<input
-							type="radio"
-							id="Monthly"
-							name="salary"
-							value="Monthly"
-							onClick={(e) => {
+					<form className="selctors">
+						<select
+							name="payRate"
+							onChange={(e) => {
 								setPaymentType(e.target.value);
 							}}
-						/>
-						<label htmlFor="Monthly">Monthly</label>
-						<input
-							type="radio"
-							id="Weekly"
-							name="salary"
-							value="Weekly"
-							onClick={(e) => {
-								setPaymentType(e.target.value);
-							}}
-						/>
-						<label htmlFor="Weekly">Weekly</label>
-						<input
-							type="radio"
-							id="Hourly"
-							name="salary"
-							value="Hourly"
-							onClick={(e) => {
-								setPaymentType(e.target.value);
-							}}
-						/>
-						<label htmlFor="Hourly">Hourly</label>
+						>
+							<option value="Monthly">Monthly</option>
+							<option value="Weekly">Weekly</option>
+							<option value="Hourly">Hourly</option>
+						</select>
 						<button onClick={(e) => calculatePay(e)}>Calculate</button>
 					</form>
-					<div className="showPayData">
-						<p>£ {yearlySalary}</p>
-						<p>£ {monthlySalary}</p>
-						<p>£ {weeklySalary}</p>
-						<p>£ {hourlySalary}</p>
-					</div>
+					<div>{showPayData ? <Results /> : ""}</div>
 				</div>
 			</div>
-			<footer>
-				<Footer />
-			</footer>
 		</div>
 	);
 }
