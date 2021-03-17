@@ -6,11 +6,15 @@ export default function JobInfo() {
 	const [jobTitle, setJobTitle] = useState("");
 	const [jobData, setJobData] = useState([]);
 	const [showDesc, setShowDesc] = useState(false);
+
+	const [title, setTitle] = useState();
+	const [desc, setDesc] = useState();
+	const [qual, setQual] = useState();
 	const jobObjects = [];
 
 	async function getData() {
 		if (jobTitle == "") {
-			setJobTitle("Please Enter a Valid Job");
+			alert("Please Enter a Valid Job");
 		} else {
 			await fetch(
 				`http://api.lmiforall.org.uk/api/v1/soc/search?q=${jobTitle}`
@@ -70,27 +74,40 @@ export default function JobInfo() {
 
 	const renderTitles = (anArray) => {
 		let renderStuff = anArray.map((titles) => (
-			<div className="jobTitles" id={showDesc ? "hidden" : ""} key={titles.soc}>
+			<div className="jobTitles" key={titles.soc}>
 				{titles.title}
 				<button
 					onClick={(e) => {
-						onClick(e);
+						tester(
+							e,
+							setTitle(titles.title),
+							setDesc(titles.desc),
+							setQual(titles.qualifications)
+						);
 					}}
 				>
 					More info
 				</button>
-				{showDesc ? <div className="hiddenDesc">{titles.desc}</div> : null}
+				<div>{showDesc ? <Results /> : ""}</div>
 			</div>
 		));
-
 		setJobData(renderStuff);
 	};
 
-	const onClick = (e) => {
+	const Results = () => (
+		<div>
+			<p>{title}</p>
+			<p>{desc}</p>
+		</div>
+	);
+
+	const tester = (e, titles, desc, qual) => {
 		e.preventDefault();
 		setShowDesc(true); // for some reason does not set showDesc to true
 		//debugger;
-		console.log(showDesc);
+		console.log(title);
+		console.log(desc);
+		console.log(qual);
 	};
 
 	return (
