@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import Footer from "../Components/Footer";
-import NavBar from "../Components/NavBar";
 
 export default function PayCalc() {
 	const [salary, setSalary] = useState();
@@ -70,7 +68,7 @@ export default function PayCalc() {
 							}}
 						/>
 					</form>
-					<form className="selctors">
+					<form className="selectors">
 						<select
 							name="payRate"
 							onChange={(e) => {

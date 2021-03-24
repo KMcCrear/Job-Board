@@ -6,6 +6,7 @@ import JobInfo from "./Pages/JobInfo";
 import AboutUs from "./Pages/AboutUs";
 import NavBar from "./Components/NavBar";
 import Footer from "./Components/Footer";
+import JobInfoTest from "./Pages/JobInfoTest";
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 				<Route path="/paycalc" render={(props) => <PayCalc />} />
 				<Route path="/jobinfo" render={(props) => <JobInfo />} />
 				<Route path="/aboutus" render={(props) => <AboutUs />} />
+				<Route path="/jobinfotest" render={() => <JobInfoTest />} />
 			</Router>
 			<footer>
 				<Footer />

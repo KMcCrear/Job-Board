@@ -251,14 +251,81 @@ button:hover {
 	margin-top: 50px;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
+	height: 1000px;
 }
 
-.loadJobData .jobTitles .hiddenDesc {
+.loadJobData .loadedJobInfo {
 	display: flex;
+	flex-direction: column;
 }
 
 .loadJobData .jobTitles:hover {
 	font-weight: bold;
+}
+
+.loadJobData .jobDetails {
+	width: 820px;
+	padding: 10px;
+	background-color: white;
+	border: none;
+	border-radius: 4px;
+	box-shadow: 10px 10px 8px 3px #555353;
+}
+
+.loadJobData .jobDetails br {
+	margin-bottom: 10px;
+}
+
+/* Pay Calc CSS */
+
+.payContainer {
+	height: 1211px;
+	background-color: #386fa4;
+}
+
+.payDesc {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 5px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.paymentForm {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.paymentForm input {
+	width: 800px;
+	height: 42px;
+	font-size: 40px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.paymentForm label {
+	padding: 10px;
+}
+
+.selectors {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.selectors select {
+	width: 400px;
+	height: 42px;
+}
+
+.selectors select:focus {
+	outline: none;
+}
+
+.selectors button {
+	width: 400px;
+	height: 42px;
 }

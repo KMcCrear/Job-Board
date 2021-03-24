@@ -1,18 +1,11 @@
 import React, { useState } from "react";
-import Footer from "../Components/Footer";
-import NavBar from "../Components/NavBar";
 
 export default function JobInfo() {
 	const [jobTitle, setJobTitle] = useState("");
 	const [jobData, setJobData] = useState([]);
-	const [showDesc, setShowDesc] = useState(false);
 
-	const [title, setTitle] = useState();
-	const [desc, setDesc] = useState();
-	const [qual, setQual] = useState();
-	const jobObjects = [];
-
-	async function getData() {
+	async function getData(e) {
+		e.preventDefault();
 		if (jobTitle == "") {
 			alert("Please Enter a Valid Job");
 		} else {
@@ -26,17 +19,20 @@ export default function JobInfo() {
 					}))
 					.then((res) => {
 						const dataArray = res.data;
-						const renderedDivs = formatData(dataArray);
-						//setJobData(renderedDivs);
+						renderTitles(dataArray);
 					})
 			);
 		}
 	}
 
-	async function getMoreInfo(socCodes) {
-		for (let i = 0; i < socCodes.length; i++) {
+	async function getPayData(e, socCode, title, desc, qual, tasks) {
+		e.preventDefault();
+		console.log(desc);
+		if (jobTitle == "") {
+			alert("Please Enter a Valid Job");
+		} else {
 			await fetch(
-				`http://api.lmiforall.org.uk/api/v1/soc/code/${socCodes[i]}`
+				`http://api.lmiforall.org.uk/api/v1/ashe/estimatePay?soc=${socCode}`
 			).then((response) =>
 				response
 					.json()
@@ -44,94 +40,117 @@ export default function JobInfo() {
 						data: data,
 					}))
 					.then((res) => {
-						const infoObject = res.data;
-						let test = createDivs(infoObject);
-						jobObjects.push(test);
-						renderTitles(jobObjects);
+						let payInfo = res.data;
+						let payObject = getRecentPay(payInfo.series);
+						let estPay = payObject.estpay;
+						let year = payObject.year;
+						estPay *= 52;
+						let jobInfo = createjobObjects(
+							title,
+							estPay,
+							year,
+							desc,
+							qual,
+							tasks
+						);
+						renderJobInfo(jobInfo);
 					})
 			);
 		}
 	}
 
-	const formatData = (dataArray) => {
-		let socCodes = [];
-		for (let i = 0; i < dataArray.length; i++) {
-			socCodes.push(dataArray[i].soc);
+	const getRecentPay = (payInfo) => {
+		let mostRecentPay = 0;
+		let temp = 0;
+		for (let i = 0; i < payInfo.length; i++) {
+			if (payInfo[i].year > temp) {
+				temp = payInfo[i].year;
+				mostRecentPay = payInfo[i];
+			}
 		}
-		getMoreInfo(socCodes);
+		//mostRecentPay = temp;
+		console.log(payInfo);
+		return mostRecentPay;
 	};
 
-	const createDivs = (infoObject) => {
+	const createjobObjects = (title, pay, year, desc, qual, tasks) => {
+		let jobArray = [];
 		let allJobInfo = {
-			soc: infoObject.soc,
-			title: infoObject.title,
-			desc: infoObject.description,
-			qualifications: infoObject.qualifications,
+			title: title,
+			pay: pay,
+			year: year,
+			desc: desc,
+			qualfications: qual,
+			tasks: tasks,
 		};
-
-		return allJobInfo;
+		jobArray.push(allJobInfo);
+		return jobArray;
 	};
 
 	const renderTitles = (anArray) => {
-		let renderStuff = anArray.map((titles) => (
-			<div className="jobTitles" key={titles.soc}>
-				{titles.title}
-				<button
-					onClick={(e) => {
-						tester(
-							e,
-							setTitle(titles.title),
-							setDesc(titles.desc),
-							setQual(titles.qualifications)
-						);
-					}}
-				>
-					More info
-				</button>
-				<div>{showDesc ? <Results /> : ""}</div>
+		let renderJobInfo = anArray.map((titles) => (
+			<div className="loadedJobInfo" key={titles.soc}>
+				<div className="jobTitles">
+					{titles.title}
+					<button
+						onClick={(e) =>
+							preventDefault(
+								e,
+								titles.soc,
+								titles.title,
+								titles.description,
+								titles.qualifications,
+								titles.tasks
+							)
+						}
+					>
+						More Info
+					</button>
+				</div>
 			</div>
 		));
-		setJobData(renderStuff);
+		setJobData(renderJobInfo);
 	};
 
-	const Results = () => (
-		<div>
-			<p>{title}</p>
-			<p>{desc}</p>
-		</div>
-	);
-
-	const tester = (e, titles, desc, qual) => {
+	const preventDefault = (e, soc, title, desc, qual, tasks) => {
 		e.preventDefault();
-		setShowDesc(true); // for some reason does not set showDesc to true
-		//debugger;
-		console.log(title);
-		console.log(desc);
-		console.log(qual);
+		let socCode = soc;
+		getPayData(e, socCode, title, desc, qual, tasks);
+	};
+
+	const renderJobInfo = (jobInfo) => {
+		let jobToRender = jobInfo.map((job) => (
+			<div className="jobDetails" key={job.title}>
+				Title: {job.title} <br />
+				Yearly Salar: £{job.pay} as of ({job.year}) <br />
+				Desciption: {job.desc} <br />
+				Qualifications: {job.qualfications} <br />
+				Tasks: {job.tasks}
+			</div>
+		));
+		setJobData(jobToRender);
 	};
 
 	return (
-		<div>
-			<div className="Contianer">
-				<div className="jobInfo">
-					<header>
-						<h1>Want a new Job?</h1>
-						<h2>Start Here</h2>
-					</header>
-					<div className="searchBar">
-						<form>
-							<input
-								type="text"
-								onChange={(e) => setJobTitle(e.target.value)}
-							/>
-						</form>
-						{/* API call works when the button is here. This is why it's not placed in the form */}
-						<button onClick={getData}>&rarr;</button>
-					</div>
+		<div className="Contianer">
+			<div className="jobInfo">
+				<header>
+					<h1>Want a new Job?</h1>
+					<h2>Start Here</h2>
+				</header>
+				<div className="searchBar">
 					<form>
-						<div className="loadJobData">Job Titles: {jobData}</div>
+						<input
+							type="text"
+							onChange={(e) => setJobTitle(e.target.value)}
+							onSubmit={getData}
+						/>
+						<button onClick={(e) => getData(e)}>&rarr;</button>
 					</form>
 				</div>
+				<form>
+					<div className="loadJobData">{jobData}</div>
+				</form>
 			</div>
 		</div>
 	);
