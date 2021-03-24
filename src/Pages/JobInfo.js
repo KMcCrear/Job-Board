@@ -122,7 +122,7 @@ export default function JobInfo() {
 		let jobToRender = jobInfo.map((job) => (
 			<div className="jobDetails" key={job.title}>
 				Title: {job.title} <br />
-				Yearly Salar: £{job.pay} as of ({job.year}) <br />
+				Yearly Salary: £{job.pay} as of ({job.year}) <br />
 				Desciption: {job.desc} <br />
 				Qualifications: {job.qualfications} <br />
 				Tasks: {job.tasks}
@@ -135,8 +135,8 @@ export default function JobInfo() {
 		<div className="Contianer">
 			<div className="jobInfo">
 				<header>
-					<h1>Want a new Job?</h1>
-					<h2>Start Here</h2>
+					<h1>Looking For a New Job?</h1>
+					<h2>Start Your Search Here</h2>
 				</header>
 				<div className="searchBar">
 					<form>
