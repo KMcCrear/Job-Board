@@ -138,19 +138,25 @@ export default function JobInfo() {
 					<h1>Looking For a New Job?</h1>
 					<h2>Start Your Search Here</h2>
 				</header>
-				<div className="searchBar">
+				<main>
+					<div className="searchContainer">
+						<div className="searchBar">
+							<form>
+								<input
+									type="text"
+									onChange={(e) => setJobTitle(e.target.value)}
+									onSubmit={getData}
+								/>
+								<button onClick={(e) => getData(e)}>&rarr;</button>
+							</form>
+						</div>
+					</div>
+				</main>
+				<aside>
 					<form>
-						<input
-							type="text"
-							onChange={(e) => setJobTitle(e.target.value)}
-							onSubmit={getData}
-						/>
-						<button onClick={(e) => getData(e)}>&rarr;</button>
+						<div className="loadJobData">{jobData}</div>
 					</form>
-				</div>
-				<form>
-					<div className="loadJobData">{jobData}</div>
-				</form>
+				</aside>
 			</div>
 		</div>
 	);

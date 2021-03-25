@@ -173,36 +173,41 @@ button:hover {
 	margin-top: 0px;
 }
 
-.jobInfo .searchBar {
+.jobInfo .searchContainer {
 	display: flex;
-	justify-content: center;
-	margin-top: 30px;
+	flex-direction: column;
+	align-items: center;
+}
+
+.jobInfo .searchContainer .searchBar {
+	width: 830px;
+	height: 40px;
+	background-color: white;
+	border: none;
+	border-radius: 2px;
+	box-shadow: 2px 10px 8px 3px #555353;
 }
 
 .jobInfo .searchBar input {
-	width: 800px;
-	height: 40px;
+	width: 780px;
+	height: 35px;
 	font-size: 25px;
 	color: black;
 	border: none;
-	border-width: 0.1px;
 	outline: none;
 	border-radius: 2px;
-	box-shadow: 2px 10px 8px 3px #555353;
 }
 
 .jobInfo .searchBar input:focus {
 	outline: none;
 }
 
-.jobInfo .searchBar button {
+.jobInfo .searchContainer .searchBar button {
 	font-size: 25px;
 	height: 42px;
 	border: none;
+	text-align: right;
 	background: none;
-}
-
-.jobInfo .searchBar button:hover {
 }
 
 .loadJobData {
@@ -295,8 +300,12 @@ button:hover {
 	.Navbar .leftSide .links a {
 		font-size: 20px;
 	}
-	.jobInfo .searchBar input {
+
+	.jobInfo .searchContainer .searchBar {
 		width: 700px;
+	}
+	.jobInfo .searchBar input {
+		width: 650px;
 	}
 
 	.loadJobData {
@@ -314,8 +323,12 @@ button:hover {
 	.Navbar .leftSide .links a {
 		font-size: 15px;
 	}
-	.jobInfo .searchBar input {
+
+	.jobInfo .searchContainer .searchBar {
 		width: 500px;
+	}
+	.jobInfo .searchBar input {
+		width: 450px;
 		height: 35px;
 	}
 
@@ -361,12 +374,20 @@ button:hover {
 		font-size: 25px;
 	}
 
+	.jobInfo {
+		height: 100%;
+	}
+
+	.jobInfo .searchContainer .searchBar {
+		width: 500px;
+	}
+
 	.jobInfo .searchBar {
 		align-content: center;
 	}
 
 	.jobInfo .searchBar input {
-		width: 500px;
+		width: 430px;
 		height: 35px;
 		margin-left: 15px;
 	}
