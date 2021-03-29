@@ -37,10 +37,32 @@ export default function PayCalc() {
 
 	const Results = () => (
 		<div className="showPayData" id="Results">
-			<p>£ {yearlySalary}</p>
-			<p>£ {monthlySalary}</p>
-			<p>£ {weeklySalary}</p>
-			<p>£ {hourlySalary}</p>
+			<table className="payTable">
+				<thead>
+					<tr>
+						<th>Salary</th>
+						<th>Pay Rate</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>£ {yearlySalary}</td>
+						<td>Yearly</td>
+					</tr>
+					<tr>
+						<td>£ {monthlySalary}</td>
+						<td>Monthly</td>
+					</tr>
+					<tr>
+						<td>£ {weeklySalary}</td>
+						<td>Weekly</td>
+					</tr>
+					<tr>
+						<td>£ {hourlySalary}</td>
+						<td>Hourly</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	);
 
@@ -75,13 +97,16 @@ export default function PayCalc() {
 								setPaymentType(e.target.value);
 							}}
 						>
+							<option defaultValue="Select"></option>
 							<option value="Monthly">Monthly</option>
 							<option value="Weekly">Weekly</option>
 							<option value="Hourly">Hourly</option>
 						</select>
-						<button onClick={(e) => calculatePay(e)}>Calculate</button>
+						<button id="selectorButton" onClick={(e) => calculatePay(e)}>
+							Calculate Salary
+						</button>
 					</form>
-					<div>{showPayData ? <Results /> : ""}</div>
+					<div className="loadedPayData">{showPayData ? <Results /> : ""}</div>
 				</div>
 			</div>
 		</div>

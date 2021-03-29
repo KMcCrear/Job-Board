@@ -220,11 +220,38 @@ button:hover {
 
 .loadJobData .loadedJobInfo {
 	display: flex;
-	flex-direction: column;
 }
 
 .loadJobData .jobTitles:hover {
 	font-weight: bold;
+}
+
+.loadJobData .loadedJobInfo {
+	width: 820px;
+	padding: 10px;
+	background-color: white;
+	border: none;
+	box-shadow: 10px 10px 8px 3px #555353;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.loadJobData .jobTitles {
+	display: flex;
+	width: 800px;
+}
+
+.loadJobData .buttonDiv button {
+	margin-left: 10px;
+	height: 30px;
+	border: none;
+	border-radius: 3px;
+	align-self: right;
+	background-color: #84d2f6;
+	font-size: 15px;
+}
+
+.loadJobData .buttonDiv button:hover {
+	box-shadow: 3px 3px 8px 3px #555353;
 }
 
 .loadJobData .jobDetails {
@@ -265,9 +292,14 @@ button:hover {
 
 .paymentForm input {
 	width: 800px;
-	height: 42px;
+	height: 45px;
 	font-size: 40px;
 	font-family: Arial, Helvetica, sans-serif;
+	border: none;
+	border-radius: 3px;
+}
+.paymentForm input:focus {
+	outline: none;
 }
 
 .paymentForm label {
@@ -281,17 +313,88 @@ button:hover {
 }
 
 .selectors select {
-	width: 400px;
+	/* Some CSS taken from -  */
+	/* https://codepen.io/vkjgr/pen/VYMeXp */
+	background-image: linear-gradient(gray 50%),
+		linear-gradient(135deg, gray 50%, transparent 50%),
+		linear-gradient(to right, #ccc, #ccc);
+	background-size: 5px 5px, 5px 5px, 1px 1.5em;
+	background-repeat: no-repeat;
 	height: 42px;
+	width: 400px;
+	text-align: center;
+	font-size: 30px;
+	margin-top: 15px;
+	border: none;
+	border-radius: 3px;
 }
 
 .selectors select:focus {
-	outline: none;
+	outline: 0;
+}
+
+select:-moz-focusring {
+	/* Some CSS taken from -  */
+	/* https://codepen.io/vkjgr/pen/VYMeXp */
+	color: transparent;
+	text-shadow: 0 0 0 #000;
 }
 
 .selectors button {
-	width: 400px;
+	margin-top: 15px;
+	width: 200px;
 	height: 42px;
+	font-size: 20px;
+	border: none;
+	border-radius: 3px;
+}
+
+.loadedPayData {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 10px;
+}
+
+.loadedPayData .showPayData {
+	margin-top: 25px;
+	align-items: center;
+	align-content: center;
+}
+
+.loadedPayData .showPayData .payTable {
+	font-size: 25px;
+	font-family: Arial, Helvetica, sans-serif;
+	box-shadow: 10px 10px 8px 3px #555353;
+	border-radius: 5px;
+	width: 500px;
+}
+
+.loadedPayData .showPayData .payTable {
+	background-color: #fff;
+}
+
+.loadedPayData .showPayData .payTable thead {
+	border: solid;
+	align-self: center;
+	font-size: 30px;
+}
+
+.loadedPayData .showPayData .payTable tbody {
+	justify-items: center;
+}
+
+.loadedPayData .showPayData .payTable th {
+	font-weight: bold;
+	text-decoration: underline;
+	width: 200px;
+	padding-bottom: 10px;
+}
+
+.loadedPayData .showPayData .payTable td {
+	padding-bottom: 10px;
+	justify-items: center;
+	text-align: center;
 }
 
 /* Media  */

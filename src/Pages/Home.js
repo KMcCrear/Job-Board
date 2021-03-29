@@ -1,4 +1,5 @@
 import React from "react";
+import AliceCarousel from "react-alice-carousel";
 
 export default function Home() {
 	return (

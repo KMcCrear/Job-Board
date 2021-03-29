@@ -18,8 +18,12 @@ export default function JobInfo() {
 						data: data,
 					}))
 					.then((res) => {
-						const dataArray = res.data;
-						renderTitles(dataArray);
+						if (res.data <= 0) {
+							alert("Please Try Again - No Job Match");
+						} else {
+							const dataArray = res.data;
+							renderTitles(dataArray);
+						}
 					})
 			);
 		}
@@ -90,8 +94,8 @@ export default function JobInfo() {
 	const renderTitles = (anArray) => {
 		let renderJobInfo = anArray.map((titles) => (
 			<div className="loadedJobInfo" key={titles.soc}>
-				<div className="jobTitles">
-					{titles.title}
+				<div className="jobTitles">{titles.title}</div>
+				<div className="buttonDiv">
 					<button
 						onClick={(e) =>
 							preventDefault(
@@ -104,7 +108,7 @@ export default function JobInfo() {
 							)
 						}
 					>
-						More Info
+						Select
 					</button>
 				</div>
 			</div>
