@@ -15,6 +15,7 @@ body {
 	margin: 0;
 	padding: 0;
 	height: 100%;
+	overflow: hidden;
 }
 
 main {
@@ -28,7 +29,7 @@ button:hover {
 /* NavBar CSS */
 
 .Navbar {
-	background-color: #133c55;
+	background-color: #1d5476;
 	width: 100%;
 	height: 80px;
 	font-family: Arial, Helvetica, sans-serif;
@@ -86,34 +87,152 @@ button:hover {
 
 /* Home Page CSS */
 
-.welcome {
+.homeContainer {
 	width: 100%;
 	height: 100%;
+}
+
+.homeContainer .homeHeader {
 	display: flex;
-	flex-direction: column;
-	align-items: center;
-	font-family: Arial, Helvetica, sans-serif;
-	background-color: #386fa4;
-}
-
-.welcome h3 {
-	font-size: 30px;
-	margin-bottom: 5px;
-}
-
-.homeContent {
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	background-color: #59a5d8;
-	font-family: Arial, Helvetica, sans-serif;
-}
-
-.homeContent .homeDesc {
-	align-items: center;
-	align-self: center;
+	justify-content: center;
 	text-align: center;
-	width: 500px;
+	background-color: #437cb1;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #fff;
+}
+
+.homeContainer .homeMain {
+	background-color: #59a5d8;
+	margin-bottom: 0px;
+}
+
+.homeContainer .homeMain .homePics {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	text-align: center;
+}
+
+.homeContainer .homeMain .homePics a {
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	opacity: 0;
+	animation: imageSlide;
+	animation-duration: 1.8s;
+	animation-delay: 0.5s;
+	animation-timing-function: ease-in;
+	animation-fill-mode: forwards;
+}
+
+.homeContainer .homeMain .homePics .imageDesc {
+	text-align: center;
+	color: #fff;
+	margin-top: 0px;
+	margin-bottom: 10px;
+	text-decoration: none;
+}
+
+@keyframes imageSlide {
+	30% {
+		opacity: 20%;
+	}
+	50% {
+		opacity: 50%;
+	}
+	70% {
+		opacity: 70%;
+	}
+	100% {
+		opacity: 100%;
+	}
+}
+
+.homeContainer .homeMain .homePics .homeImg {
+	margin-left: 30px;
+	margin-top: 15px;
+}
+
+.homeContainer .homeMain .homePics img {
+	width: 400px;
+	height: 300px;
+	border-radius: 10px;
+}
+
+.homeContainer .homeMain .homePics .homeImg:hover {
+	box-shadow: 2px 10px 8px 3px #555353;
+}
+
+.homeContainer .descOfPages {
+	height: 100%;
+	margin-top: 0px;
+	background-color: #5eacdf;
+	display: flex;
+	justify-content: center;
+	font-family: Arial, Helvetica, sans-serif;
+	height: 100vh;
+}
+
+@keyframes divEase {
+	30% {
+		opacity: 20%;
+	}
+	40% {
+		opacity: 30%;
+	}
+	50% {
+		opacity: 50%;
+	}
+	70% {
+		opacity: 70%;
+	}
+	100% {
+		opacity: 100%;
+	}
+}
+
+.homeContainer .descOfPages .payCalcDesc {
+	opacity: 0;
+	animation: divEase;
+	animation-duration: 1s;
+	animation-delay: 2s;
+	animation-fill-mode: forwards;
+}
+
+.homeContainer .descOfPages .searchDesc {
+	opacity: 0;
+	animation: divEase;
+	animation-duration: 1s;
+	animation-delay: 2.4s;
+	animation-fill-mode: forwards;
+}
+
+.homeContainer .descOfPages .aboutUsDesc {
+	opacity: 0;
+	animation: divEase;
+	animation-duration: 1s;
+	animation-delay: 2.8s;
+	animation-fill-mode: forwards;
+}
+
+.homeContainer .descOfPages aside {
+	margin-top: 60px;
+}
+
+.homeContainer .descOfPages aside h3 {
+	color: #fff;
+	font-size: 22px;
+}
+
+.homeContainer .descOfPages p {
+	margin-left: 20px;
+
+	padding: 10px;
+	height: 60px;
+	padding-bottom: 15px;
+	background-color: #fff;
+	border-radius: 7px;
+	width: 700px;
 }
 
 /* Footer CSS */
@@ -139,6 +258,7 @@ button:hover {
 
 .Footer .leftSide p {
 	padding: 0.1rem;
+	margin-left: 15px;
 }
 
 .Footer .rightSide {
@@ -221,7 +341,6 @@ button:hover {
 .loadJobData .loadedJobInfo {
 	display: flex;
 }
-
 .loadJobData .jobTitles:hover {
 	font-weight: bold;
 }
@@ -245,7 +364,6 @@ button:hover {
 	height: 30px;
 	border: none;
 	border-radius: 3px;
-	align-self: right;
 	background-color: #84d2f6;
 	font-size: 15px;
 }
@@ -283,6 +401,24 @@ button:hover {
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+.payDesc header {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	color: #ffff;
+}
+
+.payDesc header h1 {
+	font-size: 40px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.payDesc header h3 {
+	font-size: 20px;
+}
+
 .paymentForm {
 	display: flex;
 	flex-direction: column;
@@ -297,6 +433,9 @@ button:hover {
 	font-family: Arial, Helvetica, sans-serif;
 	border: none;
 	border-radius: 3px;
+	margin-bottom: 10px;
+	background-color: #fff;
+	color: #2f5871;
 }
 .paymentForm input:focus {
 	outline: none;
@@ -304,6 +443,11 @@ button:hover {
 
 .paymentForm label {
 	padding: 10px;
+	font-size: 20px;
+	margin-bottom: 10px;
+	color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 600;
 }
 
 .selectors {
@@ -320,6 +464,7 @@ button:hover {
 		linear-gradient(to right, #ccc, #ccc);
 	background-size: 5px 5px, 5px 5px, 1px 1.5em;
 	background-repeat: no-repeat;
+	background-color: #fff;
 	height: 42px;
 	width: 400px;
 	text-align: center;
@@ -347,6 +492,7 @@ select:-moz-focusring {
 	font-size: 20px;
 	border: none;
 	border-radius: 3px;
+	background-color: #84d2f6;
 }
 
 .loadedPayData {

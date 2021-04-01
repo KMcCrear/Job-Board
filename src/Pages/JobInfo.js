@@ -22,6 +22,7 @@ export default function JobInfo() {
 							alert("Please Try Again - No Job Match");
 						} else {
 							const dataArray = res.data;
+							dataArray.slice(0, 10);
 							renderTitles(dataArray);
 						}
 					})
@@ -32,8 +33,8 @@ export default function JobInfo() {
 	async function getPayData(e, socCode, title, desc, qual, tasks) {
 		e.preventDefault();
 		console.log(desc);
-		if (jobTitle == "") {
-			alert("Please Enter a Valid Job");
+		if (!socCode) {
+			alert("Error Please try again");
 		} else {
 			await fetch(
 				`http://api.lmiforall.org.uk/api/v1/ashe/estimatePay?soc=${socCode}`

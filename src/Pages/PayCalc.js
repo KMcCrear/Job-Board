@@ -71,11 +71,13 @@ export default function PayCalc() {
 			<div className="Container">
 				<div className="payContainer">
 					<div className="payDesc">
-						<h3>Pay Calculator</h3>
-						<p>Calculate your year/monthly and hourly wage here</p>
+						<header>
+							<h1>Pay Calculator</h1>
+							<h3>Calculate Your Salary Here</h3>
+						</header>
 					</div>
 					<form className="paymentForm">
-						<label>Enter Salary</label>
+						<label>Enter Salary:</label>
 						<input
 							type="number"
 							onChange={(e) => {

@@ -36,6 +36,7 @@ export default function AboutUs() {
 									<option>Other</option>
 								</select>
 								<label>Message Us</label>
+								<input type="text" />
 							</form>
 						</fieldset>
 					</div>
