@@ -34,6 +34,7 @@ button:hover {
 	height: 80px;
 	font-family: Arial, Helvetica, sans-serif;
 	display: flex;
+	opacity: 1;
 }
 
 .Navbar .leftSide #logo {
@@ -111,9 +112,11 @@ button:hover {
 	flex-direction: row;
 	justify-content: center;
 	text-align: center;
+	position: relative;
 }
 
 .homeContainer .homeMain .homePics a {
+	position: relative;
 	text-decoration: none;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 20px;
@@ -174,6 +177,9 @@ button:hover {
 }
 
 @keyframes divEase {
+	10% {
+		opacity: 15%;
+	}
 	30% {
 		opacity: 20%;
 	}
@@ -185,6 +191,9 @@ button:hover {
 	}
 	70% {
 		opacity: 70%;
+	}
+	80% {
+		opacity: 80%;
 	}
 	100% {
 		opacity: 100%;
@@ -543,11 +552,193 @@ select:-moz-focusring {
 	text-align: center;
 }
 
+/* About Us Page */
+
+.aboutUsContainer {
+	width: 100%;
+	height: 100%;
+	margin-top: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.aboutUsContainer .aboutUs {
+	display: flex;
+	flex-direction: column;
+}
+
+.aboutUsContainer .aboutUs .aboutUsHeader {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	background-color: #437cb1;
+	color: #fff;
+}
+
+.aboutUsContainer .aboutUs .aboutUsHeader h3 {
+	font-size: 25px;
+}
+
+.aboutUsContainer .aboutUs .aboutUsInfo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	background-color: #59a5d8;
+	align-items: center;
+}
+
+.aboutUsContainer .aboutUs .aboutUsInfo p {
+	background-color: #fff;
+	width: 550px;
+	padding: 5px;
+	border: none;
+	border-radius: 10px;
+	font-size: 20px;
+}
+
+.aboutUsContainer .aboutUs .contactUs {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	background-color: #5eacdf;
+	height: 100vh;
+}
+
+.aboutUsContainer .aboutUs .contactUs fieldset {
+	width: 500px;
+	border: none;
+	margin-top: 50px;
+}
+
+.aboutUsContainer .aboutUs .contactUs form {
+	display: flex;
+	flex-direction: column;
+	background-color: #fff;
+	padding: 15px;
+	border-radius: 10px;
+	box-shadow: 3px 3px 8px 3px #555353;
+}
+
+.aboutUsContainer .aboutUs .contactUs input {
+	height: 40px;
+	font-size: 30px;
+	border-radius: 5px;
+	border: solid;
+	border-width: 1px;
+}
+
+.aboutUsContainer .aboutUs .contactUs input:focus {
+	outline: none;
+}
+
+.aboutUsContainer .aboutUs .contactUs label {
+	margin-bottom: 5px;
+	margin-top: 10px;
+	font-size: 20px;
+}
+
+.aboutUsContainer .aboutUs .contactUs select {
+	/* Some CSS taken from -  */
+	/* https://codepen.io/vkjgr/pen/VYMeXp */
+	background-image: linear-gradient(gray 50%),
+		linear-gradient(135deg, gray 50%, transparent 50%),
+		linear-gradient(to right, #ccc, #ccc);
+	background-size: 5px 5px, 5px 5px, 1px 1.5em;
+	background-repeat: no-repeat;
+	background-color: #fff;
+	height: 42px;
+	text-align: center;
+	font-size: 20px;
+	margin-top: 15px;
+	border: solid;
+	border-width: 1px;
+	border-radius: 3px;
+}
+
+.aboutUsContainer .aboutUs .contactUs select:focus {
+	outline: 0;
+}
+
+select:-moz-focusring {
+	/* Some CSS taken from -  */
+	/* https://codepen.io/vkjgr/pen/VYMeXp */
+	color: transparent;
+	text-shadow: 0 0 0 #000;
+}
+
+.aboutUsContainer .aboutUs .contactUs textarea {
+	max-height: 100px;
+	max-width: 500px;
+	height: 70px;
+	border-radius: 5px;
+	border: solid;
+	border-width: 1px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.aboutUsContainer .aboutUs .contactUs textarea:focus {
+}
+
+.aboutUsContainer .aboutUs .contactUs button {
+	margin-top: 15px;
+	width: 200px;
+	height: 42px;
+	font-size: 20px;
+	border: none;
+	border-radius: 3px;
+	background-color: #84d2f6;
+}
+.aboutUsContainer .aboutUs .contactUs button:hover {
+	box-shadow: 3px 3px 8px 3px #555353;
+}
+
 /* Media  */
 
 @media only screen and (max-width: 850px) {
+	body {
+		overflow: auto;
+	}
+	.Container {
+		height: 24vh;
+	}
 	.Navbar .leftSide .links a {
 		font-size: 20px;
+	}
+
+	.homeContainer {
+		height: 25vh;
+	}
+
+	.homeContainer .homeMain .homePics {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+	}
+
+	.homeContainer .homeMain .homePics img {
+		width: 300px;
+		height: 200px;
+		border-radius: 10px;
+	}
+
+	.homeContainer .descOfPages {
+		padding-top: 0;
+		margin-top: 0px;
+		height: 600px;
+	}
+
+	.homeContainer .descOfPages aside {
+		margin-top: 20px;
+	}
+
+	.homeContainer .descOfPages p {
+		margin-left: 10px;
+		width: 500px;
+	}
+
+	.jobInfo .searchContainer {
+		height: 10vh;
 	}
 
 	.jobInfo .searchContainer .searchBar {
@@ -560,17 +751,43 @@ select:-moz-focusring {
 	.loadJobData {
 		height: 700px;
 	}
+	.loadJobData .loadedJobInfo {
+		width: 650px;
+	}
 
 	.loadJobData .jobDetails {
-		width: 700px;
+		width: 600px;
 		height: 450px;
 		align-content: center;
 	}
 }
 
 @media only screen and (max-width: 750px) {
-	.Navbar .leftSide .links a {
-		font-size: 15px;
+	.Navbar .leftSide button {
+		display: flex;
+	}
+
+	.Navbar .leftSide .links {
+		display: none;
+	}
+
+	.Navbar .leftSide #hidden {
+		position: absolute;
+		left: 0px;
+		top: 80px;
+		height: 300px;
+		max-height: 300px;
+		width: 100%;
+		background-color: #133c55;
+		display: flex;
+		flex-direction: column;
+	}
+	.Navbar .leftSide #hidden a {
+		margin: 10px;
+		font-size: 25px;
+	}
+	body {
+		overflow: auto;
 	}
 
 	.jobInfo .searchContainer .searchBar {
@@ -589,6 +806,19 @@ select:-moz-focusring {
 
 	.loadJobData {
 		height: 700px;
+		margin-top: 0px;
+	}
+
+	.jobInfo .searchContainer {
+		margin-bottom: 10px;
+	}
+
+	.loadJobData .loadedJobInfo {
+		width: 600px;
+	}
+	.loadJobData {
+		height: 1000px;
+		overflow: hidden;
 	}
 
 	.loadJobData .jobDetails {
