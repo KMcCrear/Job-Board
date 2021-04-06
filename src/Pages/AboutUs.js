@@ -27,7 +27,7 @@ export default function AboutUs() {
 						<h3>Some Information About Me and This App</h3>
 					</header>
 				</div>
-				<aside>
+				<section>
 					<div className="aboutUsInfo">
 						<p>
 							Hello my name is Kyle McCrear, I am currently a Glasgow Caledonian
@@ -42,7 +42,7 @@ export default function AboutUs() {
 							Development Courswork.
 						</p>
 					</div>
-				</aside>
+				</section>
 				<main>
 					<div className="contactUs">
 						<fieldset>

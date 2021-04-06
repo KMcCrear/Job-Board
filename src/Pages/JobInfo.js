@@ -157,11 +157,11 @@ export default function JobInfo() {
 						</div>
 					</div>
 				</main>
-				<aside>
+				<section>
 					<form>
 						<div className="loadJobData">{jobData}</div>
 					</form>
-				</aside>
+				</section>
 			</div>
 		</div>
 	);

@@ -46,7 +46,7 @@ export default function Home() {
 				</main>
 			</div>
 			<div className="descOfPages">
-				<aside>
+				<section>
 					<div className="payCalcDesc">
 						<h3>Pay Calculator - </h3>
 						<div>
@@ -75,7 +75,7 @@ export default function Home() {
 							</p>
 						</div>
 					</div>
-				</aside>
+				</section>
 			</div>
 		</div>
 	);

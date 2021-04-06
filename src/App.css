@@ -224,11 +224,11 @@ button:hover {
 	animation-fill-mode: forwards;
 }
 
-.homeContainer .descOfPages aside {
+.homeContainer .descOfPages section {
 	margin-top: 60px;
 }
 
-.homeContainer .descOfPages aside h3 {
+.homeContainer .descOfPages section h3 {
 	color: #fff;
 	font-size: 22px;
 }
@@ -463,6 +463,13 @@ button:hover {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+.selectors label {
+	padding: 10px;
+	font-size: 20px;
+	color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 600;
 }
 
 .selectors select {
@@ -728,7 +735,7 @@ select:-moz-focusring {
 		height: 600px;
 	}
 
-	.homeContainer .descOfPages aside {
+	.homeContainer .descOfPages section {
 		margin-top: 20px;
 	}
 
@@ -759,6 +766,9 @@ select:-moz-focusring {
 		width: 600px;
 		height: 450px;
 		align-content: center;
+	}
+	.paymentForm input {
+		width: 650px;
 	}
 }
 
@@ -885,5 +895,9 @@ select:-moz-focusring {
 		width: 500px;
 		height: 550px;
 		align-content: center;
+	}
+
+	.paymentForm input {
+		width: 500px;
 	}
 }

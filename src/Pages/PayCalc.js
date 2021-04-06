@@ -14,6 +14,12 @@ export default function PayCalc() {
 		e.preventDefault();
 		setShowPayData(true);
 		switch (paymentType) {
+			case "Yearly":
+				setYearlySalary(Math.round(salary * 100) / 100);
+				setMonthlySalary(Math.round((salary / 12) * 100) / 100);
+				setWeeklySalary(Math.round((salary / 52) * 100) / 100);
+				setHourlySalary(Math.round((salary / 52 / hoursWorked) * 100) / 100);
+				break;
 			case "Monthly":
 				setYearlySalary(Math.round(salary * 12 * 100) / 100);
 				setMonthlySalary(Math.round(salary));
@@ -76,39 +82,45 @@ export default function PayCalc() {
 							<h3>Calculate Your Salary Here</h3>
 						</header>
 					</div>
-					<form className="paymentForm">
-						<label>Enter Salary:</label>
-						<input
-							type="number"
-							onChange={(e) => {
-								setSalary(e.target.value);
-							}}
-						/>
-						<label>Hours Worked a Week: </label>
-						<input
-							type="number"
-							onChange={(e) => {
-								setHoursWorked(e.target.value);
-							}}
-						/>
-					</form>
-					<form className="selectors">
-						<select
-							name="payRate"
-							onChange={(e) => {
-								setPaymentType(e.target.value);
-							}}
-						>
-							<option defaultValue="Select"></option>
-							<option value="Monthly">Monthly</option>
-							<option value="Weekly">Weekly</option>
-							<option value="Hourly">Hourly</option>
-						</select>
-						<button id="selectorButton" onClick={(e) => calculatePay(e)}>
-							Calculate Salary
-						</button>
-					</form>
-					<div className="loadedPayData">{showPayData ? <Results /> : ""}</div>
+					<main>
+						<form className="paymentForm">
+							<label>Enter Salary:</label>
+							<input
+								type="number"
+								onChange={(e) => {
+									setSalary(e.target.value);
+								}}
+							/>
+							<label>Hours Worked a Week: </label>
+							<input
+								type="number"
+								onChange={(e) => {
+									setHoursWorked(e.target.value);
+								}}
+							/>
+						</form>
+						<form className="selectors">
+							<label>Select Income Period</label>
+							<select
+								name="payRate"
+								onChange={(e) => {
+									setPaymentType(e.target.value);
+								}}
+							>
+								<option defaultValue="Select"></option>
+								<option value="Yearly">Yearly</option>
+								<option value="Monthly">Monthly</option>
+								<option value="Weekly">Weekly</option>
+								<option value="Hourly">Hourly</option>
+							</select>
+							<button id="selectorButton" onClick={(e) => calculatePay(e)}>
+								Calculate Salary
+							</button>
+						</form>
+						<div className="loadedPayData">
+							{showPayData ? <Results /> : ""}
+						</div>
+					</main>
 				</div>
 			</div>
 		</div>
