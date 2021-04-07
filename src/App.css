@@ -683,9 +683,6 @@ select:-moz-focusring {
 	font-family: Arial, Helvetica, sans-serif;
 }
 
-.aboutUsContainer .aboutUs .contactUs textarea:focus {
-}
-
 .aboutUsContainer .aboutUs .contactUs button {
 	margin-top: 15px;
 	width: 200px;
@@ -899,5 +896,45 @@ select:-moz-focusring {
 
 	.paymentForm input {
 		width: 500px;
+	}
+}
+
+@media only screen and (max-height: 1080px) {
+
+	.homeContainer .homeMain .homePics img {
+		width: 400px;
+		height: 250px;
+		border-radius: 10px;
+	}
+
+	.homeContainer .descOfPages section{
+		margin-top: 0px;
+	}
+
+	.aboutUsContainer .aboutUs .aboutUsInfo p {
+		font-size: 18px;
+	}
+
+	.aboutUsContainer .aboutUs .contactUs fieldset {
+		margin-top: 0px;
+		height: 300px;
+	}
+
+	.aboutUsContainer .aboutUs .contactUs input {
+		height: 20px;
+		font-size: 18px;
+	}
+
+	.aboutUsContainer .aboutUs .contactUs select {
+		height: 30px
+
+	}
+
+	.aboutUsContainer .aboutUs .contactUs button {
+		height: 30px;
+	}
+
+	.Footer {
+		height: 30px;
 	}
 }
