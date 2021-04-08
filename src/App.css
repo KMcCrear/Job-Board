@@ -475,8 +475,7 @@ button:hover {
 .selectors select {
 	/* Some CSS taken from -  */
 	/* https://codepen.io/vkjgr/pen/VYMeXp */
-	background-image: linear-gradient(gray 50%),
-		linear-gradient(135deg, gray 50%, transparent 50%),
+	background-image: linear-gradient(135deg, gray 50%, transparent 50%),
 		linear-gradient(to right, #ccc, #ccc);
 	background-size: 5px 5px, 5px 5px, 1px 1.5em;
 	background-repeat: no-repeat;
@@ -647,8 +646,7 @@ select:-moz-focusring {
 .aboutUsContainer .aboutUs .contactUs select {
 	/* Some CSS taken from -  */
 	/* https://codepen.io/vkjgr/pen/VYMeXp */
-	background-image: linear-gradient(gray 50%),
-		linear-gradient(135deg, gray 50%, transparent 50%),
+	background-image: linear-gradient(135deg, gray 50%, transparent 50%),
 		linear-gradient(to right, #ccc, #ccc);
 	background-size: 5px 5px, 5px 5px, 1px 1.5em;
 	background-repeat: no-repeat;
@@ -681,9 +679,6 @@ select:-moz-focusring {
 	border: solid;
 	border-width: 1px;
 	font-family: Arial, Helvetica, sans-serif;
-}
-
-.aboutUsContainer .aboutUs .contactUs textarea:focus {
 }
 
 .aboutUsContainer .aboutUs .contactUs button {
